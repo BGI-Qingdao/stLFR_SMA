@@ -1,9 +1,6 @@
 #!/user/bin/env/python3
 import pysam
-import sys
 import gzip
-import argparse
-import logging
 
 def add_align_info(align_1, align_2, read_seq_quality_dict):
 	"""

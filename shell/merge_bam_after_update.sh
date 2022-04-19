@@ -50,5 +50,5 @@ fi
 `find ${floder}/ -type f > name_list.txt`
 
 #echo "====Start to merge bam after update $(date +%F%t%T) ===="
-$DIR/tools/samtools/1.11/bin/samtools merge -f --threads $threads ${output}.bam -b name_list.txt
+$DIR/tools/samtools/1.11/bin/samtools merge --no-PG -f --threads $threads ${output}.bam -b name_list.txt
 #echo "====End to sort $(date +%F%t%T) ===="

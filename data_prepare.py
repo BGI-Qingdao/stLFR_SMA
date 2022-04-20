@@ -64,7 +64,7 @@ def create_work_floder():
 	os.system("mkdir merge_bam")
 	os.system("mkdir r1_pos_info")
 	os.system("mkdir r2_pos_info")
-	os.system("mkdir Sloved_Bar_info")
+	os.system("mkdir Solved_Bar_info")
 	os.system("mkdir Update_bam_floder")
 
 

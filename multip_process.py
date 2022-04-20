@@ -62,7 +62,7 @@ def multip_process_all_barcode(tools_path, ref_file, read1, read2, number, mhit,
          new_bar_readpos = solve_multi_1bar(bar_readpos, lfr_thrshd)
          bar_readpos_list.append(new_bar_readpos)
 
-    output_update_info("Sloved_Bar_info/"+number, bar_readpos_list)
+    output_update_info("Solved_Bar_info/"+number, bar_readpos_list)
     update_pos_info(bar_readpos_list, "merge_bam/"+number+".sorted.bam", "Update_bam_floder/"+number)
 
     del index

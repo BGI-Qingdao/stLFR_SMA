@@ -16,7 +16,7 @@ Usage
 ```
 usage: solve_multip_align.py [-h] -ref REFERENCE -1 READ_1 -2 READ_2 -mhit MAX_HIT -length INSERT_DISTANT -lfr_thrshd LFR_THRSHD -thread THREAD -bwa BWA -samtools SAMTOOLS
 
-Solved the mutilp alignment reads
+Solved the multiple alignment reads
 
 optional arguments:
   -h, --help            show this help message and exit

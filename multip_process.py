@@ -7,12 +7,14 @@ from writebam import *
 import multiprocessing
 import os
 
-def multip_run(tools_path, ref_file, num_file, max_workers, mhit, length, lfr_thrshd):
+def multip_run(tools_path, samtools, bwa, ref_file, num_file, max_workers, mhit, length, lfr_thrshd):
     """
     Parallel processing of solve multiple alignment process
 
     Args:
-        tools_path (the tools path): input
+        tools_path (the tools path) :input
+        samtools (the samtools path): input
+        bwa (the bwa path) : input
         ref_file (the reference sequence): input
         num_file (the specified number of files)(int): input
         max_workers (the specified number of threads)(int): input
@@ -25,17 +27,19 @@ def multip_run(tools_path, ref_file, num_file, max_workers, mhit, length, lfr_th
     """
     pool = multiprocessing.Pool(processes = max_workers)
     for i in range(num_file):
-        pool.apply_async(multip_process_all_barcode,(tools_path, ref_file, "read_1_floder/"+str(i)+"_1.fq", "read_2_floder/"+str(i)+"_2.fq", str(i), mhit, length, lfr_thrshd, ))
+        pool.apply_async(multip_process_all_barcode,(tools_path, samtools, bwa, ref_file, "read_1_floder/"+str(i)+"_1.fq", "read_2_floder/"+str(i)+"_2.fq", str(i), mhit, length, lfr_thrshd, ))
     pool.close()
     pool.join()
 
 
-def multip_process_all_barcode(tools_path, ref_file, read1, read2, number, mhit, length, lfr_thrshd):
+def multip_process_all_barcode(tools_path, samtools, bwa, ref_file, read1, read2, number, mhit, length, lfr_thrshd):
     """
     One process of solve multiple alignment process
 
     Args:
         tools_path (the tools path): input
+        samtools (the samtools path) : input
+        bwa (the bwa path) : input
         ref_file (the reference sequence): input
         read_1,read_2(the pair end fastq file) : input
         number (the processing number): input
@@ -46,7 +50,7 @@ def multip_process_all_barcode(tools_path, ref_file, read1, read2, number, mhit,
     Return:
         One bam file of solve multiple alignment process   
     """
-    bwa_align_and_merge(tools_path, ref_file, read1, read2, number)
+    bwa_align_and_merge(tools_path, samtools, bwa, ref_file, read1, read2, number)
     new_readpos_barcode = {}
     allreadpos_barcode = get_all_read_pos_set_v2("merge_bam/"+number+".sorted.bam", mhit)
     output_allreadpos_v3('r1_pos_info/'+number+'.r1',allreadpos_barcode, 'r1')

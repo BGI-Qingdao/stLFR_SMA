@@ -86,12 +86,14 @@ def extract_read_by_name(tool_path, read_1, read_2, max_workers, threads):
 	os.system("bash "+tool_path+"/shell/extract_read.sh"+" -r "+read_2+" -n read_list"+" -o read_2_floder"+" -m "+str(max_workers)+" -t "+str(threads)+" -i 2")
 
 
-def bwa_align_and_merge(tool_path, ref_file, read1, read2, index):
+def bwa_align_and_merge(tool_path, samtools, bwa, ref_file, read1, read2, index):
     """
     Using bwa to Alignment the pair end to reference sequence
 
     Args:
         tool_path (the tools path): input
+        samtools (the samtools path) : input
+        bwa (the bwa path) : input
         ref_file (the reference sequence): input
         read1,read2(the fastq file of paired end): input
         index (the number of the fastq)(int): input
@@ -99,11 +101,12 @@ def bwa_align_and_merge(tool_path, ref_file, read1, read2, index):
     Return:
         the bam file of the alignment result
     """
-    os.system("bash "+tool_path+"/shell/single_bwa.sh"+" -r "+ref_file+" -f "+read1+" -o r1_bam"+" -m "+str(index)+" -i 1")
-    os.system("bash "+tool_path+"/shell/single_bwa.sh"+" -r "+ref_file+" -f "+read2+" -o r2_bam"+" -m "+str(index)+" -i 2")
-    os.system("bash "+tool_path+"/shell/merge_bam.sh"+" -1 r1_bam"+" -2 r2_bam"+" -o merge_bam"+" -m "+str(index))
+    os.system("bash "+tool_path+"/shell/single_bwa.sh"+" -s "+samtools+" -b "+bwa+" -r "+ref_file+" -f "+read1+" -o r1_bam"+" -m "+str(index)+" -i 1")
+    os.system("bash "+tool_path+"/shell/single_bwa.sh"+" -s "+samtools+" -b "+bwa+" -r "+ref_file+" -f "+read2+" -o r2_bam"+" -m "+str(index)+" -i 2")
+    os.system("bash "+tool_path+"/shell/merge_bam.sh"+" -s "+samtools+" -1 r1_bam"+" -2 r2_bam"+" -o merge_bam"+" -m "+str(index))
 
-def merge_bam_after_sloved(tool_path, threads):
+
+def merge_bam_after_sloved(tool_path, samtools ,threads):
 	"""
 	Merge the bam file after solve multiple alignment process
 
@@ -114,8 +117,8 @@ def merge_bam_after_sloved(tool_path, threads):
 	Return:
 		A bam file of the final result of alignment
 	"""
+	os.system("bash "+tool_path+"/shell/merge_bam_after_update.sh"+" -s "+samtools+" -f Update_bam_floder -o stLFR_SMA -t "+str(threads))
 
-	os.system("bash "+tool_path+"/shell/merge_bam_after_update.sh"+" -f Update_bam_floder -o stLFR_SMA -t "+str(threads))
 
 def detele_intermediate_file():
 	"""

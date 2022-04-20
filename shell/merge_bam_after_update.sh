@@ -12,16 +12,17 @@ Options:
     -f   The update alignment bam path
     -o   The output file
     -t   The thread number
-
+    -s   The samtools path
 EOF
 }
 
-while getopts ":t:f:m:o:h" opt
+while getopts ":t:f:m:o:s:h" opt
 do
     case $opt in
         t) threads=$OPTARG;;
         f) floder=$OPTARG;;
         o) output=$OPTARG;;
+        s) samtools=$OPTARG;;
         h|help) helpdoc
         exit 1;;
         ?) echo "$OPTARG Unknown parameter"
@@ -50,9 +51,5 @@ fi
 `find ${floder}/ -type f > name_list.txt`
 
 #echo "====Start to merge bam after update $(date +%F%t%T) ===="
-<<<<<<< HEAD
-$DIR/tools/samtools/1.11/bin/samtools merge --no-PG -f --threads $threads ${output}.bam -b name_list.txt
-=======
-$DIR/tools/samtools/1.11/bin/samtools merge -f --no-PG --threads $threads ${output}.bam -b name_list.txt
->>>>>>> d8b913ddc739becc211c89045b595a2820d15466
+$samtools merge -f --no-PG --threads $threads ${output}.bam -b name_list.txt
 #echo "====End to sort $(date +%F%t%T) ===="

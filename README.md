@@ -51,6 +51,6 @@ Output
 ├── r1_pos_info
 ├── r2_pos_info
 ├── run_stLFR_SMA_log.txt
-├── Sloved_Bar_info
+├── Solved_Bar_info
 └── stLFR_SMA.bam
 ```

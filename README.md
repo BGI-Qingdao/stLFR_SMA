@@ -38,7 +38,7 @@ Examples
 ----------------------------------
 an example of simulation reference data and the paired end stLFR sequencing data (fastq)
 ```
-python3 /dellfsqd2/ST_OCEAN/USER/xiaogaohong/software/stLFR_SMA/solve_multip_align.py
+python3 usr/software/stLFR_SMA/solve_multip_align.py
 -ref /inputs/chr8/chr8_diploid.fa -1 /inputs/chr8/chr8_400k.r1.fq.gz -2 /inputs/chr8/chr8_400k.r2.fq.gz 
 -mhit 10 -length 2000 -lfr_thrshd 100000 -thread 10
 ```

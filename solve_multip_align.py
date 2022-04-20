@@ -9,7 +9,7 @@ from data_prepare import *
 if __name__=="__main__":
 	tool_path = sys.path[0]
 	max_workers = 100
-	parser = argparse.ArgumentParser(description='Solved the mutilp alignment reads')
+	parser = argparse.ArgumentParser(description='Solved the multiple alignment reads')
 	parser.add_argument('-ref', required=True, dest='reference', type=str, help='the reference file')
 	parser.add_argument('-1', required=True, dest='read_1', type=str, help='The paired_end of read1 must be .gz')
 	parser.add_argument('-2', required=True, dest='read_2', type=str, help='The paired_end of read2 must be .gz')

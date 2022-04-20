@@ -4,7 +4,7 @@ stLFR_SMA (solve multiple alignment)
 Install stLRF_SMA
 ------------------------------------
 ```
-$git clone https://github.com/sumoii/stLFR_SMA.git
+$git clone https://github.com/BGI-Qingdao/stLFR_SMA.git
 ```
 Dependencies
 ------------------------------------

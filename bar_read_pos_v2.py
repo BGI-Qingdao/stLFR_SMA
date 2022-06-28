@@ -1,3 +1,6 @@
+########################
+##bar_read_pos_v2.py  ##
+########################
 import os,sys,time
 import gzip
 import logging

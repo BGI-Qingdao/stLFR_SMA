@@ -1,3 +1,6 @@
+###########################
+##solve_multip_align.py	 ##
+###########################
 import sys
 import re
 from multip_process import *

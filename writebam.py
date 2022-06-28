@@ -1,3 +1,6 @@
+########################
+##writebam.py		  ##
+########################
 #!/user/bin/env/python3
 import pysam
 import gzip

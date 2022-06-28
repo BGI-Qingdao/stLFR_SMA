@@ -1,3 +1,6 @@
+########################
+##dealpairedlib.py	  ##
+########################
 #!/use/bin/env/python3
 import os
 import pysam

@@ -1,3 +1,6 @@
+########################
+##multip_process.py	  ##
+########################
 from dealpairedlib import *
 from data_prepare import bwa_align_and_merge
 from bar_lfr_read import *

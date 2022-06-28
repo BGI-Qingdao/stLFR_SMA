@@ -1,3 +1,6 @@
+########################
+##bar_lfr_read.py	  ##
+########################
 import os,sys,time
 import gzip
 from numpy import *

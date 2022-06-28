@@ -1,3 +1,6 @@
+########################
+##readbam.py		  ##
+########################
 import pysam
 
 def get_all_read_pos_set_v2(file_name, mhit):

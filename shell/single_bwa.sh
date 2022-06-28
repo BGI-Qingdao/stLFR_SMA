@@ -45,6 +45,6 @@ then
     exit 1
 fi
 
-$bwa mem -R '@RG\tID:'${worker}.r${index}.sorted'' -a -t 1 $reference $floder 1>${output}/${worker}.r${index}.sam 2>${output}/${worker}_aln.err
+$bwa mem -R '@RG\tID:'${worker}.r${index}.sorted'\tSM:sample1' -a -t 1 $reference $floder 1>${output}/${worker}.r${index}.sam 2>${output}/${worker}_aln.err
 $samtools sort -@ 1 -o ${output}/${worker}.r${index}.sorted.bam -O bam -T ${output}/${worker}_tmp ${output}/${worker}.r${index}.sam
 rm -rf ${output}/${worker}.r${index}.sam

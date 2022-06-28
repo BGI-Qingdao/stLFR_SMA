@@ -19,6 +19,7 @@ if __name__=="__main__":
 	parser.add_argument('-thread', required=True, dest='thread', type=int, help='The number of threads')
 	parser.add_argument('-bwa', required=True, dest='bwa', type=str ,help='The path of the BWA in the system')
 	parser.add_argument('-samtools', required=True ,dest='samtools' ,type=str ,help='The path of the samtools in the system')
+	parser.add_argument('-seqtk', required=True, dest='seqtk' ,type=str ,help="The path of the seqtk in the system")
 
 	args = parser.parse_args()
 	ref = args.reference
@@ -30,6 +31,7 @@ if __name__=="__main__":
 	threads = args.thread
 	bwa = args.bwa
 	samtools = args.samtools
+	seqtk = args.seqtk
 
 	log_setting("run_stLFR_SMA")
 	cmd_info = " ".join(sys.argv)
@@ -41,7 +43,7 @@ if __name__=="__main__":
 	logger.info("***End split")
 
 	logger.info("Start to extract read by the name")
-	extract_read_by_name(tool_path, read_1, read_2, max_workers, threads)
+	extract_read_by_name(tool_path, seqtk ,read_1, read_2, max_workers, threads)
 	logger.info("***End extract")
 
 	logger.info("Start to slove multip alignment read")

@@ -68,7 +68,7 @@ def create_work_floder():
 	os.system("mkdir Update_bam_floder")
 
 
-def extract_read_by_name(tool_path, read_1, read_2, max_workers, threads):
+def extract_read_by_name(tool_path, seqtk, read_1, read_2, max_workers, threads):
 	"""
 	Extract read form the fastq file to new fastq file
 
@@ -81,9 +81,9 @@ def extract_read_by_name(tool_path, read_1, read_2, max_workers, threads):
 	Return :
 		The specified number fastq file of paired end
 	"""
-	os.system("bash "+tool_path+"/shell/extract_read.sh"+" -r "+read_1+" -n read_list"+" -o read_1_floder"+" -m "+str(max_workers)+" -t "+str(threads)+" -i 1")
+	os.system("bash "+tool_path+"/shell/extract_read.sh"+" -s "+seqtk+" -r "+read_1+" -n read_list"+" -o read_1_floder"+" -m "+str(max_workers)+" -t "+str(threads)+" -i 1")
 	os.system("bash "+tool_path+"/shell/change_read_name.sh"+" -n read_list"+" -m "+str(max_workers)+" -t "+str(max_workers))
-	os.system("bash "+tool_path+"/shell/extract_read.sh"+" -r "+read_2+" -n read_list"+" -o read_2_floder"+" -m "+str(max_workers)+" -t "+str(threads)+" -i 2")
+	os.system("bash "+tool_path+"/shell/extract_read.sh"+" -s "+seqtk+" -r "+read_2+" -n read_list"+" -o read_2_floder"+" -m "+str(max_workers)+" -t "+str(threads)+" -i 2")
 
 
 def bwa_align_and_merge(tool_path, samtools, bwa, ref_file, read1, read2, index):

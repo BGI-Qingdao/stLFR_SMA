@@ -5,7 +5,7 @@ helpdoc()
 { cat <<EOF
 
     The shell is used to extract read in name list to the file designated
-
+	-s	 The seqtk path
     -r   The readfile path
     -n	 The name list floder
     -o	 The output floder designated
@@ -16,9 +16,10 @@ helpdoc()
 EOF
 }
 
-while getopts ":r:t:o:m:n:i:h" opt
+while getopts ":s:r:t:o:m:n:i:h" opt
 do
 	case $opt in
+		s) seqtk=$OPTARG;;
 		t) threads=$OPTARG;;
 		m) workers=$OPTARG;;
 		r) readfile=$OPTARG;;
@@ -70,7 +71,7 @@ while (($j<workers))
 do
 	for ((i=0;i<threads;i++))
 	do
-		$DIR/tools/bin/seqtk subseq ${readfile} $namelist/$j"_read_list.txt" >$output/${j}_${index}.fq &
+		$seqtk subseq ${readfile} $namelist/$j"_read_list.txt" >$output/${j}_${index}.fq &
 		j=$(($j+1))
 		if (($j==workers))
 		then 

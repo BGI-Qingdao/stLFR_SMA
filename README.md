@@ -23,12 +23,12 @@ optional arguments:
   -ref REFERENCE        the reference file
   -1 READ_1             The paired_end of read1 must be .gz
   -2 READ_2             The paired_end of read2 must be .gz
-  -mhit MAX_HIT         The max hit numbers of a read pos
+  -mhit MAX_HIT         The max hit numbers of a read pos (default=180)
   -length INSERT_DISTANT
-                        The max length of PE insert distant can be accepted
+                        The max length of PE insert distant can be accepted (default=2000)
   -lfr_thrshd LFR_THRSHD
-                        The distance threshold is used to determine whether two neighboring reads are in the same lfr
-  -thread THREAD        The number of threads
+                        The distance threshold is used to determine whether two neighboring reads are in the same lfr (default=100000)
+  -thread THREAD        The number of threads (default=16)
   -bwa BWA              The path of the BWA in the system
   -samtools SAMTOOLS    The path of the samtools in the system
   -seqtk SEQTK          The path of the seqtk in the system

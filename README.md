@@ -31,6 +31,7 @@ optional arguments:
   -thread THREAD        The number of threads
   -bwa BWA              The path of the BWA in the system
   -samtools SAMTOOLS    The path of the samtools in the system
+  -seqtk SEQTK          The path of the seqtk in the system
 ```
 
 Examples

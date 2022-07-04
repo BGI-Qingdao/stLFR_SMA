@@ -46,8 +46,10 @@ def add_align_info(align_1, align_2, read_seq_quality_dict):
 	else:
 		insert = align_2.reference_start + read_2_len - align_1.reference_start
 
-	align_1.template_length	= insert	
+	align_1.template_length	= insert
 	align_2.template_length = -insert
+	align_1.mapping_quality = 30
+	align_2.mapping_quality = 30	
 
 
 def get_info_form_barlist(bar_readpos_list):

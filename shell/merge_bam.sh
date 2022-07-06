@@ -1,3 +1,6 @@
+###################
+##merge_bam.sh   ##
+###################
 #!/bin/bash
 helpdoc()
 { cat <<EOF

@@ -1,3 +1,6 @@
+####################
+##single_bwa.sh   ##
+####################
 #!/bin/bash
 helpdoc()
 { cat <<EOF

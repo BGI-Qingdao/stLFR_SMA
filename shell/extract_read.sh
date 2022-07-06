@@ -63,9 +63,6 @@ then
 	exit 1
 fi
 
-#echo $DIR
-#echo "==== Start extract read$index by barcode $(date +%F%t%T) ===="
-
 j=0
 while (($j<workers))
 do
@@ -81,5 +78,3 @@ do
 	wait
 done
 wait
-
-#echo "==== END extract read$index $(date +%F%t%T) ===="

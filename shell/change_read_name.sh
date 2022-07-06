@@ -40,8 +40,6 @@ then
     exit 1
 fi
 
-#echo "==== Start change read name $(date +%F%t%T) ===="
-
 j=0
 while (($j<workers))
 do
@@ -57,5 +55,3 @@ do
 	wait
 done
 wait
-
-#echo "==== END change $(date +%F%t%T) ===="

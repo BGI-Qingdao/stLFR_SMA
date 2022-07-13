@@ -26,6 +26,8 @@ def add_align_info(align_1, align_2, read_seq_quality_dict):
 		align_2.cigar = read_seq_quality_dict['r2'][0]
 		align_2.query_sequence = read_seq_quality_dict['r2'][1]
 		align_2.query_qualities = read_seq_quality_dict['r2'][2]
+		align_1.is_read1=True
+		align_2.is_read2=True
 	else:
 		align_1.cigar = read_seq_quality_dict['r2'][0]
 		align_1.query_sequence = read_seq_quality_dict['r2'][1]
@@ -33,6 +35,8 @@ def add_align_info(align_1, align_2, read_seq_quality_dict):
 		align_2.cigar = read_seq_quality_dict['r1'][0]
 		align_2.query_sequence = read_seq_quality_dict['r1'][1]
 		align_2.query_qualities = read_seq_quality_dict['r1'][2]
+		align_1.is_read2=True
+		align_2.is_read1=True
 
 	align_1.next_reference_id = align_2.reference_id
 	align_1.next_reference_start = align_2.reference_start
@@ -49,7 +53,10 @@ def add_align_info(align_1, align_2, read_seq_quality_dict):
 	align_1.template_length	= insert
 	align_2.template_length = -insert
 	align_1.mapping_quality = 30
-	align_2.mapping_quality = 30	
+	align_2.mapping_quality = 30
+	align_1.is_paired = True
+	align_2.is_paired = True
+    
 
 
 def get_info_form_barlist(bar_readpos_list):

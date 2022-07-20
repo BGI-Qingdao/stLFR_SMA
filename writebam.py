@@ -52,8 +52,8 @@ def add_align_info(align_1, align_2, read_seq_quality_dict):
 
 	align_1.template_length	= insert
 	align_2.template_length = -insert
-	align_1.mapping_quality = 30
-	align_2.mapping_quality = 30
+	align_1.mapping_quality = 60
+	align_2.mapping_quality = 60
 	align_1.is_paired = True
 	align_2.is_paired = True
     

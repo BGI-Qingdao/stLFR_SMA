@@ -134,3 +134,4 @@ def detele_intermediate_file():
 	os.system("rm -rf r2_bam")
 	os.system("rm -rf Update_bam_floder")
 	os.system("rm -rf merge_bam")
+	os.system("rm -rf name_list.txt")

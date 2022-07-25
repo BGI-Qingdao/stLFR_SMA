@@ -51,11 +51,11 @@ if __name__=="__main__":
 
 	logger.info("Start to slove multip alignment read")
 	multip_run(tool_path, samtools, bwa, ref, max_workers, threads, max_hit, length, lfr_thrshd)
-	logger.info("***End sloved")
+	logger.info("***End slove")
 
 	logger.info("merge the result")
 	merge_bam_after_sloved(tool_path, samtools, threads)
-	logger.info("***END merge")
+	logger.info("***End merge")
 
 	logger.info("delete the intermediate file")
 	detele_intermediate_file()
